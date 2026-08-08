@@ -1,0 +1,29 @@
+//WAP to compress a string
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100], compressed[100];
+    int i, j = 0, count;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    // Compress the string
+    for (i = 0; str[i] != '\0'; i++) {
+        count = 1;
+        while (str[i] == str[i + 1]) {
+            count++;
+            i++;
+        }
+        compressed[j++] = str[i];
+        if (count > 1) {
+            j += sprintf(&compressed[j], "%d", count);
+        }
+    }
+    compressed[j] = '\0'; // Null-terminate the compressed string
+
+    printf("Compressed string: %s\n", compressed);
+
+    return 0;
+
+}

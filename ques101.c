@@ -1,0 +1,27 @@
+//WAP to create a number guessing game
+#include <stdio.h>
+int main() {
+    int number, guess, attempts = 0;
+
+    // Set the number to be guessed
+    number = 42; // You can change this number or generate it randomly
+
+    printf("Welcome to the Number Guessing Game!\n");
+    printf("I have selected a number between 1 and 100. Try to guess it!\n");
+
+    do {
+        printf("Enter your guess: ");
+        scanf("%d", &guess);
+        attempts++;
+
+        if (guess < number) {
+            printf("Too low! Try again.\n");
+        } else if (guess > number) {
+            printf("Too high! Try again.\n");
+        } else {
+            printf("Congratulations! You've guessed the number %d in %d attempts.\n", number, attempts);
+        }
+    } while (guess != number);
+
+    return 0;
+}
